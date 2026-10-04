@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirman Properties - Land Buy & Rent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🏢 NIRMAN PROPERTIES</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Find Your Perfect Land</h1>
+        <p>Buy or Rent Premium Land Properties</p>
+        <button class="btn" onclick="document.querySelector('#properties').scrollIntoView({ behavior: 'smooth' })">Explore Properties</button>
+        <button class="btn btn-secondary" onclick="openListingModal()">List Your Property</button>
+    </section>
+
+    <!-- Search Section -->
+    <div class="container">
+        <div class="search-section">
+            <form class="search-form" onsubmit="handleSearch(event)">
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" placeholder="City, Area, or Landmark" required>
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <select required>
+                        <option value="">Select Type</option>
+                        <option value="buy">Buy</option>
+                        <option value="rent">Rent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Price Range (₹)</label>
+                    <select required>
+                        <option value="">Select Range</option>
+                        <option value="5-10L">5L - 10L</option>
+                        <option value="10-25L">10L - 25L</option>
+                        <option value="25-50L">25L - 50L</option>
+                        <option value="50L+">50L+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Area (Sq.ft)</label>
+                    <input type="number" placeholder="Minimum area">
+                </div>
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Active Properties</p>
+            </div>
+            <div class="stat-item">
+                <h3>10K+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Years Experience</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Properties Section -->
+    <section class="section" id="properties">
+        <div class="container">
+            <h2>Featured Properties</h2>
+            <div class="properties-grid">
+                <!-- Property 1 -->
+                <div class="property-card">
+                    <div class="property-image">Residential Plot - North Delhi</div>
+                    <div class="property-content">
+                        <span class="property-type">Buy</span>
+                        <div class="property-title">Residential Plot</div>
+                        <div class="property-price">₹25,00,000</div>
+                        <div class="property-details">
+                            📍 North Delhi<br>
+                            📏 1,200 Sq.ft<br>
+                            ✓ Gated Community<br>
+                            ✓ Water & Power
+                        </div>
+                        <button class="btn" onclick="showPropertyDetails('Residential Plot', '₹25,00,000', 'North Delhi', '1,200 Sq.ft', 'Gated Community, Water & Power')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="property-card">
+                    <div class="property-image">Commercial Land - East Delhi</div>
+                    <div class="property-content">
+                        <span class="property-type">Rent</span>
+                        <div class="property-title">Commercial Land</div>
+                        <div class="property-price">₹50,000/Month</div>
+                        <div class="property-details">
+                            📍 East Delhi<br>
+                            📏 2,500 Sq.ft<br>
+                            ✓ Main Road Access<br>
+                            ✓ Flexible Terms
+                        </div>
+                        <button class="btn" onclick="showPropertyDetails('Commercial Land', '₹50,000/Month', 'East Delhi', '2,500 Sq.ft', 'Main Road Access, Flexible Terms')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="property-card">
+                    <div class="property-image">Agricultural Land - Outer Delhi</div>
+                    <div class="property-content">
+                        <span class="property-type">Buy</span>
+                        <div class="property-title">Agricultural Land</div>
+                        <div class="property-price">₹18,50,000</div>
+                        <div class="property-details">
+                            📍 Outer Delhi<br>
+                            📏 5,000 Sq.ft<br>
+                            ✓ Fertile Soil<br>
+                            ✓ Irrigation Ready
+                        </div>
+                        <button class="btn" onclick="showPropertyDetails('Agricultural Land', '₹18,50,000', 'Outer Delhi', '5,000 Sq.ft', 'Fertile Soil, Irrigation Ready')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property 4 -->
+                <div class="property-card">
+                    <div class="property-image">Industrial Plot - West Delhi</div>
+                    <div class="property-content">
+                        <span class="property-type">Buy</span>
+                        <div class="property-title">Industrial Plot</div>
+                        <div class="property-price">₹45,00,000</div>
+                        <div class="property-details">
+                            📍 West Delhi<br>
+                            📏 3,500 Sq.ft<br>
+                            ✓ Industrial Zone<br>
+                            ✓ JNNURM Approved
+                        </div>
+                        <button class="btn" onclick="showPropertyDetails('Industrial Plot', '₹45,00,000', 'West Delhi', '3,500 Sq.ft', 'Industrial Zone, JNNURM Approved')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property 5 -->
+                <div class="property-card">
+                    <div class="property-image">Plot for Investment - South Delhi</div>
+                    <div class="property-content">
+                        <span class="property-type">Rent</span>
+                        <div class="property-title">Investment Plot</div>
+                        <div class="property-price">₹35,000/Month</div>
+                        <div class="property-details">
+                            📍 South Delhi<br>
+                            📏 2,000 Sq.ft<br>
+                            ✓ High Appreciation<br>
+                            ✓ Metro Adjacent
+                        </div>
+                        <button class="btn" onclick="showPropertyDetails('Investment Plot', '₹35,000/Month', 'South Delhi', '2,000 Sq.ft', 'High Appreciation, Metro Adjacent')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property 6 -->
+                <div class="property-card">
+                    <div class="property-image">Luxury Plot - Premium Zone</div>
+                    <div class="property-content">
+                        <span class="property-type">Buy</span>
+                        <div class="property-title">Luxury Residential Plot</div>
+                        <div class="property-price">₹95,00,000</div>
+                        <div class="property-details">
+                            📍 Premium Zone<br>
+                            📏 8,000 Sq.ft<br>
+                            ✓ Prime Location<br>
+                            ✓ Golf Course View
+                        </div>
+                        <button class="btn" onclick="showPropertyDetails('Luxury Residential Plot', '₹95,00,000', 'Premium Zone', '8,000 Sq.ft', 'Prime Location, Golf Course View')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>About Nirman Properties</h3>
+                    <p>With over 15 years of experience in the real estate industry, Nirman Properties has established itself as a trusted name in buying, selling, and renting land across Delhi and surrounding areas.</p>
+                    <p>Our team of expert consultants is dedicated to helping you find the perfect property that meets your investment goals and lifestyle needs.</p>
+                    <ul class="features-list">
+                        <li>Verified Properties & Owners</li>
+                        <li>Transparent Pricing</li>
+                        <li>Legal Documentation Support</li>
+                        <li>Flexible Payment Options</li>
+                        <li>24/7 Customer Support</li>
+                        <li>Investment Advisory</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 style="color: white;">Get In Touch</h2>
+            <div class="contact-content">
+                <div>
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <h3>📍 Address</h3>
+                        <p>Sector 1, IMT Manesar, Gurugram - 122050</p>
+                    </div>
+                    <div class="contact-info">
+                        <h3>📱 Phone</h3>
+                        <p>+91 99111 41314</p>
+                    </div>
+                    <div class="contact-info">
+                        <h3>📧 Email</h3>
+                        <p>info@nirmanproperties.com</p>
+                        <p>support@nirmanproperties.com</p>
+                    </div>
+                    <div class="contact-info">
+                        <h3>🕐 Working Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+                <form onsubmit="handleContactForm(event)">
+                    <div class="contact-form-group">
+                        <label>Full Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="contact-form-group">
+                        <label>Email</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="contact-form-group">
+                        <label>Phone</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="contact-form-group">
+                        <label>Message</label>
+                        <textarea required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Nirman Properties. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 12px;">Nirman Properties - Your Trusted Real Estate Partner | Buy • Rent • Invest</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
